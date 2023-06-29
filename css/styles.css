@@ -1,0 +1,80 @@
+
+/* Reseteo */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+li {
+    list-style: none;
+    text-decoration: none;
+}
+
+a:hover {
+    cursor: pointer;
+    transform: scale(1.5);
+    transition: 0.8;
+    color: black;
+}
+
+a:visited {
+    color:white;
+
+}
+/* Estilos globales */
+
+body {
+    background-color: gray;
+    width: 100VW;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Div*/
+
+div { 
+    color: aliceblue;
+}
+
+/* Header */
+
+header {
+    background-color:rgb(97, 96, 96);
+    height: 150px;
+    width: 98vw;
+    color: aliceblue;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+
+main {
+
+}
+
+h1 {
+    color: black;
+    font-family: 'Black Ops One';
+}
+
+h1:hover {
+    transform: scale(1.1);
+    transition: 3.0;
+}

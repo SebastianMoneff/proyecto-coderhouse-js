@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMICLOUD - Carrito de compras</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body class="body-comic">
+    <header>
+        <div>
+            <h1>COMICLOUD</h1>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a class="botones boton-carrito-volver" href="./index.html">Seguir comprando</a>
+                </li>
+                <li>
+                    <a class="botones boton-carrito active" href="./carrito.html">Carrito  <span class="cantidad-productos">0</span></a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="cuadrilla-carrito">
+        <div>
+            <h2 class="titulo-carrito">Carrito de compra</h2>
+            <div class="carrito-productos">
+                
+                <p id="carrito-vacio" class="carrito-vacio">Tu carrito de compras esta vacio. ¿No viste nada que te guste?</p>
+                
+                <div id="carrito-productos" class="carrito-productos disable">
+                    <div class="carrito-producto">
+                        <img class="carrito-comic-imagen" src="" alt="">
+                        <div class="carrito-comic-nombre">
+                            <small>Nombre</small>
+                            <h3>Flash</h3>
+                        </div>
+                        <div class="carrito-comic-cantidad">
+                            <small>Cantidad</small>
+                            <p>1</p>
+                        </div>
+                        <div class="carrito-comic-precio">
+                            <small>Precio</small>
+                            <p>$1000</p>
+                        </div>
+                        <div class="carrito-comic-total">
+                            <small>Total</small>
+                            <p>$1000</p>
+                        </div>
+                        <button class="carrito-comic-eliminar">Eliminar</button>
+                    </div>
+                    
+                    <div class="carrito-producto">
+                        <img class="carrito-comic-imagen" src="" alt="">
+                        <div class="carrito-comic-nombre">
+                            <small>Nombre</small>
+                            <h3>Superman</h3>
+                        </div>
+                        <div class="carrito-comic-cantidad">
+                            <small>Cantidad</small>
+                            <p>2</p>
+                        </div>
+                        <div class="carrito-comic-precio">
+                            <small>Precio</small>
+                            <p>$1000</p>
+                        </div>
+                        <div class="carrito-comic-total">
+                            <small>Total</small>
+                            <p>$2000</p>
+                        </div>
+                        <button class="carrito-comic-eliminar">Eliminar</button>
+                    </div>
+                </div>
+
+                <div id="botones-carrito-funciones" class="botones-carrito-funciones disable">
+                    <div class="botones-carrito-vaciar">
+                            <button class="carrito-boton-vaciar">Vaciar carrito de compras</button>
+                    </div>
+                    <div class="botones-carrito-comprar-total">
+                        <div class="botones-carrito-total">
+                            <p>Total:</p>
+                            <p id="total">$ 3000</p>
+                        </div>
+                        <Button class="botones-carrito-comprar">Comprar todo</Button>
+                    </div>
+                </div>
+                <p id="carrito-comprado" class="carrito-comprado disable">Gracias por tu compra!</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-text">© 2023 Sebastian Manuel Molina Moneff</p>
+    </footer>
+
+    <script src="./js/carrito.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

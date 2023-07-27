@@ -99,8 +99,10 @@ background-color: darkred;
 }
 
 .producto-index-imagen {
-    max-width: 100%;
+    max-width: 250px;
+    max-height: 400px;
     border-radius: 1rem;
+    align-content: center;
 }
 
 .producto-index-detalles {
@@ -120,8 +122,6 @@ background-color: darkred;
     font-size: 1rem;
 }
 
-.producto-index-precio{
-}
 
 .producto-index-comprar {
     padding: 0.50rem;

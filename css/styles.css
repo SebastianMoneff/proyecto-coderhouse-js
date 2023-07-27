@@ -4,7 +4,7 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: 0;
+    box-sizing: border-box;
 }
 
 a {
@@ -12,69 +12,210 @@ a {
 }
 
 ul {
+    list-style-type: none;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, input, textarea {
+    padding: 0;
+    margin: 0;
+    color:beige;
+}
+
+header {
+    padding: 2rem;
     display: flex;
     flex-direction: row;
-    gap: 20px;
-}
-li {
-    list-style: none;
-    text-decoration: none;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.91);
+    align-items: center;
 }
 
-a:hover {
+ul {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+/*---------------------------------------------PAGINA INDEX------------------------------------------*/
+
+/*BODY*/
+
+.body-comic {
+display: grid;
+grid-template-columns: 1fr, 4fr;
+background-color: darkred;
+}
+
+/*LOGO*/
+
+.logo {
+    color: rgb(255, 255, 255);
+}
+
+.logo:hover {
+    transform: scale(1.1);
+    transition: 0.3;
+}
+/*BOTONES HEADER*/
+
+.botones {
+    padding: 0.50rem;
+    color: rgb(255, 255, 255);
+    background-color: transparent;
+    border: 0.5px solid;
+    border-radius: 1rem;
     cursor: pointer;
-    transform: scale(1.5);
-    transition: 0.8;
-    color: black;
+    text-transform: uppercase;
 }
 
-a:visited {
-    color:white;
-
+.botones:hover {
+    transform: scale(1.1);
+    transition: 0.3;
 }
-/* Estilos globales */
 
-body {
-    background-color: gray;
-    width: 100VW;
+.boton-carrito {
+    margin-left: 2rem;
+}
+
+/*GRILLA Y TARJETA DE PRODUCTOS: Imagen, nombre, precio, boton de compra*/
+
+.titulo-index {
+    margin-top: 2rem;
+    padding-left: 3rem;
+    color: beige;
+}
+
+.productos-index {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.producto-index {
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
+
+.producto-index-imagen {
+    max-width: 100%;
+    border-radius: 1rem;
+}
+
+.producto-index-detalles {
+    background-color: rgba(0, 0, 0, 0.90);
+    padding: 1rem;
+    border-radius: 1rem;
+    color:aliceblue;
+
     display: flex;
     flex-direction: column;
+    gap: 0.5em;
     align-items: center;
-    justify-content: center;
     text-align: center;
 }
 
-/* Div*/
-
-div { 
-    color: aliceblue;
+.producto-index-nombre {
+    font-size: 1rem;
 }
 
-/* Header */
+.producto-index-precio{
+}
 
-header {
-    background-color:rgb(97, 96, 96);
-    height: 150px;
-    width: 98vw;
-    color: aliceblue;
+.producto-index-comprar {
+    padding: 0.50rem;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border-radius: 1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+}
 
+.producto-index-comprar:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    border: 1px solid;
+    transform: scale(1.1);
+    transition: 0.3;
+}
+
+/*---------------------------------------------PAGINA carrito------------------------------------------*/
+
+.carrito-productos {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.carrito-producto {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(0, 0, 0);
+    border-radius: 1rem;
+    padding: 1rem;
+    gap: 1rem;
+    color: beige;
+}
+
+.carrito-producto-imagen {
+    width: 4rem;
+    border-radius: 1rem;
+}
+
+.carrito-producto-eliminar {
+    border: 0;
+    background-color: transparent;
+    color: red;
+    cursor: pointer;
+}
+
+.botones-carrito-vaciar-comprar {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    
+    justify-content: space-between;
 }
 
-main {
-
+.carrito-boton-vaciar {
+    border: 0;
+    background-color: black;
+    padding: 1rem;
+    border-radius: 1rem;
+    color:beige;
+    text-transform: uppercase;
+    cursor: pointer;
 }
 
-h1 {
-    color: black;
-    font-family: 'Black Ops One';
+.carrito-boton-comprar {
+    display: flex;
+    border: 0;
+    background-color: black;
+    padding: 1rem;
+    border-radius: 1rem;
+    color:beige;
+    text-transform: uppercase;
+    cursor: pointer;
 }
 
-h1:hover {
-    transform: scale(1.1);
-    transition: 3.0;
+.boton-carrito-comprar {
+    display: flex;
+    flex-direction: row;
 }
+
+.carrito-total-compra {
+    display: flex;
+}
+
+/*FOOTER*/
+
+.footer {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.753);
+}
+.footer-text {
+    color: rgb(141, 138, 138);
+}
+
+/*---------------------------------------------------------BOTONES MENU*/

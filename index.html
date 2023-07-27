@@ -9,40 +9,65 @@
     <title>COMICLOUD - Pagina principal</title>
 </head>
 
-<body>
+<body class="body-comic">
     <header>
         <div>
-            <h1>COMICLOUD</h1>
+            <h1 class="logo">COMICLOUD</h1>
         </div>
         <nav>
             <ul>
-                <li><a href="./pages/carrito.html">CARRITO DE COMPRAS</a></li>
+                <li><button class="botones boton-categorias active">Todos los comics</button></li>
+                <li><button class="botones boton-categorias">Americanos</button></li>
+                <li><button class="botones boton-categorias">Independientes</button></li>
+                <li><button class="botones boton-categorias">Mangas</button></li>
+                <li class="botones boton-carrito"><a href="./pages/carrito.html">Carrito <span
+                            class="cantidad-compras">0</span></a></li>
             </ul>
         </nav>
     </header>
-    <main>
-        <article>
-            <div>
-                <h2>Sobre nosotros</h2>
-                <p>Somos un sitio web dedicado a la venta de comics americanos, manga y autores independientes.</p>
+    <main class="cuadrilla-index">
+        <h2 class="titulo-index">Todos nuestros comics:</h2>
+        <div id="productos-index" class="productos-index">
+            <div class="producto-index">
+                <img class="producto-index-imagen" src="./images/americanos/batman.jpg" alt="">
+                <div class="producto-index-detalles">
+                    <h3 class="producto-index-nombre">Batman: The Dark Knight Returns</h3>
+                    <p class="producto-index-precio">10.000</p>
+                    <button class="producto-index-comprar">Comprar</button>
+                </div>
             </div>
-            <div>
-                <h2>Mira nuestro catalogo</h2>
-                <p>Explora todos los articulos, separados por catagorias y listos para el emvio</p>
+            <div class="producto-index">
+                <img class="producto-index-imagen" src="./images/americanos/watchmen.jpg" alt="">
+                <div class="producto-index-detalles">
+                    <h3 class="producto-index-nombre">Watchmen</h3>
+                    <p class="producto-index-precio">18000</p>
+                    <button id="" class="producto-index-comprar">Comprar</button>
+                </div>
             </div>
-            <div>
-                <h2>Contactanos</h2>
-                <p>Contactanos a traves de nuestras redes sociales</p>
+            <div class="producto-index">
+                <img class="producto-index-imagen" src="./images/americanos/hellboy.jpg" alt="">
+                <div class="producto-index-detalles">
+                    <h3 class="producto-index-nombre">Hellboy</h3>
+                    <p class="producto-index-precio">10.000</p>
+                    <button class="producto-index-comprar">Comprar</button>
+                </div>
             </div>
-        </article>
-    </main>
-    <footer>
-        <div>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit error nesciunt, eum incidunt ex minima,
-                qui deserunt excepturi blanditiis quas exercitationem aut.</p>
+            <div class="producto-index">
+                <img class="producto-index-imagen" src="./images/americanos/vdevendetta.jpg" alt="">
+                <div class="producto-index-detalles">
+                    <h3 class="producto-index-nombre">V de Vendetta</h3>
+                    <p class="producto-index-precio">10.000</p>
+                    <button class="producto-index-comprar">Comprar</button>
+                </div>
+            </div>
         </div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-text">© 2023 Sebastian Manuel Molina Moneff</p>
     </footer>
-    <!-- <script src="./js/main.js"></script> -->
+
+    <script src="./js/main.js"></script>
 </body>
 
 </html>

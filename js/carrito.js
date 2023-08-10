@@ -16,7 +16,7 @@ function agregarAlCarrito() {
         carritoVacio.classList.add("disable");
         carritoProductos.classList.remove("disable");
         botonesCarritoFunciones.classList.remove("disable");
-        CarritoComprado.classList.add("disable");
+        carritoComprado.classList.add("disable");
         
         carritoProductos.innerHTML = "";
         

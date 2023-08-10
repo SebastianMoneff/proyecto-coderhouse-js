@@ -1,57 +1,15 @@
-const comics = [
-  {
-  id: "comic-batman", 
-  nombre:"Batman: The Dark Knight Returns", 
-  precio: 10000, 
-  imagen:"./images/americanos/batman.jpg", 
-  categoria:{nombre:"Americanos", id:"americanos",}
-},
-{
-  id: "comic-vdevendetta", 
-  nombre:"V de Vendetta", 
-  precio: 10000, 
-  imagen:"./images/americanos/vdevendetta.jpg", 
-  categoria:{nombre:"Americanos", id:"americanos",}
-},
-{
-  id: "comic-hellboy", 
-  nombre:"Hellboy", 
-  precio: 10000, 
-  imagen:"./images/americanos/hellboy.jpg", 
-  categoria:{nombre:"Americanos", id:"americanos",}
-},
-{
-  id: "comic-watchmen", 
-  nombre:"Watchmen", 
-  precio: 10000, 
-  imagen:"./images/americanos/watchmen.jpg", 
-  categoria:{nombre:"Americanos", id:"americanos",}
-},
-{
-  id: "comic-blacksad", 
-  nombre:"Blacksad", 
-  precio: 10000, 
-  imagen:"./images/independientes/blacksad.jpg", 
-  categoria:{nombre:"Independientes", id:"independientes",}
-},
-{
-  id: "comic-radiantblack", 
-  nombre:"Radiant Black", 
-  precio: 10000, 
-  imagen:"./images/independientes/radiantblack.jpg", 
-  categoria:{nombre:"Independientes", id:"independientes",}
-},
-{
-  id: "comic-akira", 
-  nombre:"Akira", 
-  precio: 10000, 
-  imagen:"./images/mangas/akira.jpg", 
-  categoria:{nombre:"Mangas", id:"mangas",}
-},
-];
+
+
+let productos = [];
+
+fetch("./js/productos.json")
+    .then(response => response.json())
+    .then(data => {
+        productos = data;
+        cargarProductos(productos);
+    })
 
 /*Elementos del DOM*/
-let productos = [];
 
 const productosIndex = document.querySelector("#productos-index");
 const botonCategoria = document.querySelectorAll(".boton-categoria");

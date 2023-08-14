@@ -1,101 +1,126 @@
-
-
 let productos = [];
 
 fetch("./js/productos.json")
     .then(response => response.json())
     .then(data => {
         productos = data;
-        cargarComics(productos);
+        cargarProductos(productos);
     })
 
-/*Elementos del DOM*/
 
-const productosIndex = document.querySelector("#productos-index");
-const botonCategoria = document.querySelectorAll(".boton-categoria");
-const tituloIndex = document.querySelector("#titulo-index");
-let botonComprar = document.querySelectorAll(".comic-index-comprar");
-const numero = document.querySelector(".numero");
+const contenedorProductos = document.querySelector("#contenedor-productos");
+const botonesCategorias = document.querySelectorAll(".boton-categoria");
+const tituloPrincipal = document.querySelector("#titulo-principal");
+let botonesAgregar = document.querySelectorAll(".producto-agregar");
+const numerito = document.querySelector("#numerito");
 
 
-function cargarComics (comicsSeleccionados) {
+botonesCategorias.forEach(boton => boton.addEventListener("click", () => {
+    aside.classList.remove("aside-visible");
+}))
 
-  productosIndex.innerHTML = "";
-  comicsSeleccionados.forEach (comic => {
 
-    const div = document.createElement ("div");
-    div.classList.add("comic-index");
-    div.innerHTML = `
-      <img class="comic-index-imagen" src="${comic.imagen}" alt="${comic.nombre}">
-      <div class="comic-index-detalles">
-        <h3 class="comic-index-nombre">${comic.nombre}</h3>
-        <p class="comic-index-precio">$${comic.precio}</p>
-        <button id="${comic.id}" class="comic-index-comprar">Comprar</button>
-      </div>
-    `;
-    
-      productosIndex.append(div);
-  })
-  botonComprarActualizado();
+function cargarProductos(productosElegidos) {
+
+    contenedorProductos.innerHTML = "";
+
+    productosElegidos.forEach(producto => {
+
+        const div = document.createElement("div");
+        div.classList.add("producto");
+        div.innerHTML = `
+            <img class="producto-imagen" src="${producto.imagen}" alt="${producto.titulo}">
+            <div class="producto-detalles">
+                <h3 class="producto-titulo">${producto.titulo}</h3>
+                <p class="producto-precio">$${producto.precio}</p>
+                <button class="producto-agregar" id="${producto.id}">Agregar</button>
+            </div>
+        `;
+
+        contenedorProductos.append(div);
+    })
+
+    actualizarBotonesAgregar();
 }
 
 
-botonCategoria.forEach (boton => {
-  boton.addEventListener ("click", (e)=> {
+botonesCategorias.forEach(boton => {
+    boton.addEventListener("click", (e) => {
 
-    botonCategoria.forEach(boton => boton.classList.remove("active"));
-    e.currentTarget.classList.add("active");
+        botonesCategorias.forEach(boton => boton.classList.remove("active"));
+        e.currentTarget.classList.add("active");
 
-    if (e.currentTarget.id != "todos") {
-      const botonCategoria = comics.find(comic => comic.categoria.id === e.currentTarget.id)
-      tituloIndex.innerText = comicsBoton.categoria.nombre;
-      const comicsBoton = comics.filter(comic => comic.categoria.id === e.currentTarget.id)
-      cargarComics (comicsBoton);
-    } else {
-      tituloIndex.innerText = "Todos nuestros comics:"
-      cargarComics(comics);
-    }
+        if (e.currentTarget.id != "todos") {
+            const productoCategoria = productos.find(producto => producto.categoria.id === e.currentTarget.id);
+            tituloPrincipal.innerText = productoCategoria.categoria.nombre;
+            const productosBoton = productos.filter(producto => producto.categoria.id === e.currentTarget.id);
+            cargarProductos(productosBoton);
+        } else {
+            tituloPrincipal.innerText = "Todos los productos";
+            cargarProductos(productos);
+        }
 
-  })
+    })
 });
 
-function botonComprarUsado() {
-  botonComprar = document.querySelectorAll(".comic-index-comprar");
-  
-  botonComprar.forEach(boton => {
-    boton.addEventListener("click", agregarAlCarrito);
-  });
+function actualizarBotonesAgregar() {
+    botonesAgregar = document.querySelectorAll(".producto-agregar");
+
+    botonesAgregar.forEach(boton => {
+        boton.addEventListener("click", agregarAlCarrito);
+    });
 }
 
-let comicsEnCarrito;
+let productosEnCarrito;
 
-let comicsEnCarritoLS = localStorage.getItem("comics-en-carrito");
+let productosEnCarritoLS = localStorage.getItem("productos-en-carrito");
 
-if(comicsEnCarritoLS) {
-  comicsEnCarrito = JSON.parse(comicsEnCarritoLS);
-  actualizarNumero();
+if (productosEnCarritoLS) {
+    productosEnCarrito = JSON.parse(productosEnCarritoLS);
+    actualizarNumerito();
 } else {
-const comicsEnCarrito = [];
+    productosEnCarrito = [];
 }
 
-function agregarAlCarrito (e) {
+function agregarAlCarrito(e) {
 
-  const idBoton = e.currentTarget.id;
-  const comicAgregado = comics.find(comic => comic.id === idBoton);
-  if (comicsEnCarrito.some(comic => comic.id === idBoton)) {
-    const index = comicsEnCarrito.findIndex(comic => comic.id === idBoton)
-    comicsEnCarrito[index].cantidad++;
-  } else {
-    comicAgregado.cantidad = 1;
-    comicsEnCarrito.push(comicAgregado);
-  }
-  actualizarNumero();
+    Toastify({
+        text: "Producto agregado",
+        duration: 3000,
+        close: true,
+        gravity: "top", 
+        position: "right", 
+        stopOnFocus: true,
+        style: {
+          background: "linear-gradient(to right, #4b33a8, #785ce9)",
+          borderRadius: "2rem",
+          textTransform: "uppercase",
+          fontSize: ".75rem"
+        },
+        offset: {
+            x: '1.5rem', 
+            y: '1.5rem' 
+          },
+        onClick: function(){} // Callback after click
+      }).showToast();
 
-  localStorage.setItem("comics-en-carrito", JSON.stringify(comicsEnCarrito))
+    const idBoton = e.currentTarget.id;
+    const productoAgregado = productos.find(producto => producto.id === idBoton);
+
+    if(productosEnCarrito.some(producto => producto.id === idBoton)) {
+        const index = productosEnCarrito.findIndex(producto => producto.id === idBoton);
+        productosEnCarrito[index].cantidad++;
+    } else {
+        productoAgregado.cantidad = 1;
+        productosEnCarrito.push(productoAgregado);
+    }
+
+    actualizarNumerito();
+
+    localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
 }
 
-function actualizarNumero() {
-  let numeroNuevo = comicsEnCarrito.reduce((acc, comic) => acc + comic.cantidad, 0);
-  numero.innerText = numeroNuevo;
+function actualizarNumerito() {
+    let nuevoNumerito = productosEnCarrito.reduce((acc, producto) => acc + producto.cantidad, 0);
+    numerito.innerText = nuevoNumerito;
 }
-
